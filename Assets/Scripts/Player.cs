@@ -43,15 +43,33 @@ public class Player : MonoBehaviour
 		interactableLabel.gameObject.SetActive(currInteractable);
 		if (currInteractable)
 		{
+			// Interactable hint thing
 			interactableLabel.transform.position = currInteractable.transform.position;
-		}
 
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			// Attempting to go throught the door
-
-			if (currInteractable)
+			// Trying to lock or unlock it
+			if (Input.GetKeyDown(KeyCode.Q))
 			{
+				currInteractable.OnInteract();
+
+				if (currInteractable.gameObject.tag == "Door")
+				{
+					Door door = currInteractable.GetComponent<Door>();
+
+					if (currKeys.Contains(door.color))
+					{
+						// Toogle lock
+						door.isLocked = !door.isLocked;
+					}
+
+				}
+
+			}
+
+			if (Input.GetKeyDown(KeyCode.E))
+			{
+				// Attempting to go throught the door
+
+
 				currInteractable.OnInteract();
 
 
@@ -59,7 +77,7 @@ public class Player : MonoBehaviour
 				{
 					Door door = currInteractable.GetComponent<Door>();
 
-					if (!door.isLocked || (door.isLocked && currKeys.Contains(door.color)))
+					if (!door.isLocked)
 					{
 						// I can open this door
 						GoThroughDoor(door);

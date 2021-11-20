@@ -484,6 +484,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
+      propertyPath: color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
+      propertyPath: myRoom
+      value: 
+      objectReference: {fileID: 923563661}
+    - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
       propertyPath: connectedDoor
       value: 
       objectReference: {fileID: 862578284}
@@ -756,6 +764,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -179.998
       objectReference: {fileID: 0}
+    - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
+      propertyPath: color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
+      propertyPath: myRoom
+      value: 
+      objectReference: {fileID: 1954961314}
     - target: {fileID: 2289628848542230187, guid: f71b8b7ff052f844ba1d797ec8b910f1, type: 3}
       propertyPath: connectedDoor
       value: 
@@ -1137,6 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyColors:
+  - {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
   - {r: 1, g: 0.4672241, b: 0.427451, a: 1}
   - {r: 0.618067, g: 1, b: 0.427451, a: 1}
   - {r: 0.427451, g: 0.44265535, b: 1, a: 1}
@@ -1660,6 +1677,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4ab6b6ab3b2e740b3ee2c3eb62bef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1954961314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 536157606052602111, guid: f6bd2b264da6c114a91ae09447f20c4c, type: 3}
+  m_PrefabInstance: {fileID: 1342877804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66044355b8397ef4083395c94ba2f30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2003481101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1760,7 +1788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063336260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 4.02, z: 0}
+  m_LocalPosition: {x: -0.57, y: -1.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 112706290}
@@ -1818,7 +1846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currRoom: {fileID: 923563661}
-  currKeys: 
+  currKeys: 01000000
   debugEye: {fileID: 905917617}
   interactableLayerMask:
     serializedVersion: 2
