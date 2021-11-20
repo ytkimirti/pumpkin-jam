@@ -13,7 +13,7 @@ public class Dialogue : MonoBehaviour
     {
         text.text = string.Empty;
         sentenceIndex = 0;
-        //StartDialogue();
+        StartDialogue();
     }
     private void Update()
     {
@@ -30,6 +30,7 @@ public class Dialogue : MonoBehaviour
     private void StartDialogue()
     {
         sentenceIndex = 0;
+        gameObject.SetActive(true);
         StartCoroutine(StartSentence());
     }
     private IEnumerator StartSentence()
