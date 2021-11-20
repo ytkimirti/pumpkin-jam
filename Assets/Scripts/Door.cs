@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class Door : Interactable
+public class Door : MonoBehaviour
 {
 	// [Required]
 	public int color;
@@ -34,7 +34,7 @@ public class Door : Interactable
 		keyRenderer.color = GameManager.main.keyColors[color];
 	}
 
-	public override void OnInteract()
+	public void OnInteract()
 	{
 		print($"is locked: {isLocked} name: {gameObject.name} ");
 	}

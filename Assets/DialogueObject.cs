@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueObject : Interactable
+public class DialogueObject : MonoBehaviour
 {
 	public string dialogueOnInteracted;
 
@@ -16,7 +16,7 @@ public class DialogueObject : Interactable
 
 	}
 
-	public override void OnInteract()
+	public void ShowMesage()
 	{
 		print($"Show dialogue: {dialogueOnInteracted}");
 	}

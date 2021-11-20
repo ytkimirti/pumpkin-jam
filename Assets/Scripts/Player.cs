@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	[Header("References")]
 	public Transform debugEye;
 	public LayerMask interactableLayerMask;
+	public Transform interactableLabel;
 
 	public Entity entity;
 
@@ -39,12 +40,21 @@ public class Player : MonoBehaviour
 
 		currInteractable = findNearestInteractable();
 
+		interactableLabel.gameObject.SetActive(currInteractable);
+		if (currInteractable)
+		{
+			interactableLabel.transform.position = currInteractable.transform.position;
+		}
+
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			// Attempting to go throught the door
 
 			if (currInteractable)
 			{
+				currInteractable.OnInteract();
+
+
 				if (currInteractable.gameObject.tag == "Door")
 				{
 					Door door = currInteractable.GetComponent<Door>();
