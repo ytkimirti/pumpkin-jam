@@ -9,15 +9,17 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
 
     private int sentenceIndex;
+    private bool isDialogging;
     private void Start()
     {
         text.text = string.Empty;
+        isDialogging = false;
         sentenceIndex = 0;
-        StartDialogue();
+        StartDialogue(0);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isDialogging)
         {
             if (text.text == sentences[sentenceIndex]) NextSentence();
             else
@@ -27,9 +29,10 @@ public class Dialogue : MonoBehaviour
             }
         }
     }
-    private void StartDialogue()
+    private void StartDialogue(int dialogueIndex)
     {
         sentenceIndex = 0;
+        isDialogging = true;
         gameObject.SetActive(true);
         StartCoroutine(StartSentence());
     }
@@ -49,6 +52,10 @@ public class Dialogue : MonoBehaviour
             text.text = string.Empty;
             StartCoroutine(StartSentence());
         }
-        else gameObject.SetActive(false);
+        else
+        {
+            gameObject.SetActive(false);
+            isDialogging = false;
+        }
     }
 }
