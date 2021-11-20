@@ -38,6 +38,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 3447021695
+    locked: 0
+  - name: Room
+    uniqueID: 2861755817
+    locked: 0
+  - name: Shadow
+    uniqueID: 1145095159
+    locked: 0
+  - name: Door
+    uniqueID: 2144380703
+    locked: 0
+  - name: Props
+    uniqueID: 3262235185
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: HUD
+    uniqueID: 3092971717
+    locked: 0
+  - name: UI
+    uniqueID: 1722340603
     locked: 0
