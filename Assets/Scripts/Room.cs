@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using NaughtyAttributes;
 
 public class Room : MonoBehaviour
@@ -10,6 +11,7 @@ public class Room : MonoBehaviour
 	public float colliderThickness;
 
 	[Header("Refs")]
+	public SortingGroup sortingGroup;
 	public SpriteRenderer bgSprite;
 	public Transform doorsHolder;
 	public Door[] doors;
@@ -23,8 +25,7 @@ public class Room : MonoBehaviour
 
 	private void Awake()
 	{
-		UpdateColliders();
-
+		UpdateEverything();
 	}
 
 	void Start()

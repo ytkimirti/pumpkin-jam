@@ -119,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 536157606052602110}
   - component: {fileID: 536157606052602111}
+  - component: {fileID: 5667980641729291950}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -158,6 +159,7 @@ MonoBehaviour:
   roomSize: {x: 2, y: 2}
   colliderOffset: 0
   colliderThickness: 0.3
+  sortingGroup: {fileID: 5667980641729291950}
   bgSprite: {fileID: 536157608053214961}
   doorsHolder: {fileID: 8953587091949358840}
   doors: []
@@ -165,6 +167,17 @@ MonoBehaviour:
   colD: {fileID: 536157606992220130}
   colR: {fileID: 536157607593542272}
   colL: {fileID: 536157606143776069}
+--- !u!210 &5667980641729291950
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536157606052602105}
+  m_Enabled: 1
+  m_SortingLayerID: -1433211479
+  m_SortingLayer: -4
+  m_SortingOrder: 0
 --- !u!1 &536157606071932799
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+	public Color[] keyColors;
 
-    void Update()
-    {
-        
-    }
+	public static GameManager main;
+
+	private void Awake()
+	{
+		main = this;
+	}
+
+	void Start()
+	{
+
+	}
+
+	void Update()
+	{
+
+	}
 }

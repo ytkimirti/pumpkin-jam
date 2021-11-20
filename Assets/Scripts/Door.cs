@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class Door : MonoBehaviour
+public class Door : Interactable
 {
 	// [Required]
+	public int color;
+	public bool isLocked;
+
+	[Header("Refs")]
 	public Door connectedDoor;
 	public Room myRoom;
 
+	[Space]
+	public SpriteRenderer keyRenderer;
+
+
+	private void Awake()
+	{
+		FindParent();
+	}
 
 	void Start()
 	{
@@ -17,12 +29,19 @@ public class Door : MonoBehaviour
 
 	void Update()
 	{
+		keyRenderer.gameObject.SetActive(isLocked);
 
+		keyRenderer.color = GameManager.main.keyColors[color];
+	}
+
+	public override void OnInteract()
+	{
+		print($"is locked: {isLocked} name: {gameObject.name} ");
 	}
 
 	public Vector2 FindTargetPosition()
 	{
-		return connectedDoor.transform.position + (connectedDoor.transform.up * -0.5f);
+		return transform.position + (transform.up * -0.5f);
 	}
 
 	public void FindParent()
