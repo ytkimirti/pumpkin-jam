@@ -10,6 +10,7 @@ public class Room : MonoBehaviour
 	public float colliderThickness;
 
 	[Header("Refs")]
+	public SpriteRenderer bgSprite;
 	public Transform doorsHolder;
 	public Door[] doors;
 
@@ -35,8 +36,15 @@ public class Room : MonoBehaviour
 	{
 	}
 
+	public void UpdateEverything()
+	{
+		UpdateColliders();
+		bgSprite.size = roomSize * 2;
+	}
+
 	private void OnDrawGizmos()
 	{
+		UpdateEverything();
 		doors = doorsHolder.GetComponentsInChildren<Door>();
 
 		foreach (Door d in doors)
@@ -47,8 +55,7 @@ public class Room : MonoBehaviour
 
 	private void OnHierarchyChange()
 	{
-
-		UpdateColliders();
+		UpdateEverything();
 	}
 
 	void UpdateColliders()
