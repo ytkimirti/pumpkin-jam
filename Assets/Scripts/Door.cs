@@ -15,6 +15,7 @@ public class Door : MonoBehaviour
 
 	[Space]
 	public SpriteRenderer keyRenderer;
+	public SpriteRenderer doorRenderer;
 
 
 	private void Awake()
@@ -31,7 +32,10 @@ public class Door : MonoBehaviour
 	{
 		keyRenderer.gameObject.SetActive(isLocked);
 
-		keyRenderer.color = GameManager.main.keyColors[color];
+		Color col = GameManager.main.keyColors[color];
+
+		keyRenderer.color = col;
+		doorRenderer.color = col;
 	}
 
 	public void OnInteract()
