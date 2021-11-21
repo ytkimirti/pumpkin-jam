@@ -27,6 +27,7 @@ public class Dialogue : MonoBehaviour
 	public string currTalkingName;
 	public string currTalkingSentence;
 	public Sprite currTalkingSprite;
+	float defHolderY;
 
 	public static Dialogue main;
 
@@ -37,6 +38,7 @@ public class Dialogue : MonoBehaviour
 
 	private void Start()
 	{
+		defHolderY = dialogueHolder.localPosition.y;
 		text.text = string.Empty;
 		isDialogging = false;
 		sentenceIndex = 0;
@@ -98,6 +100,7 @@ public class Dialogue : MonoBehaviour
 	}
 	public void StartDialogue(int startIndex)
 	{
+		dialogueHolder.DOLocalMoveY(0, 0.6f);
 		sentenceIndex = startIndex;
 		isDialogging = true;
 		dialogueHolder.gameObject.SetActive(true);
@@ -149,7 +152,8 @@ public class Dialogue : MonoBehaviour
 		}
 		else
 		{
-			dialogueHolder.gameObject.SetActive(false);
+			// dialogueHolder.gameObject.SetActive(false);
+			dialogueHolder.DOLocalMoveY(defHolderY, 0.6f);
 
 			isDialogging = false;
 		}
