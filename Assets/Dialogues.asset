@@ -42,7 +42,7 @@ MonoBehaviour:
       olacak\u2026"
     - "D: K\u0131rd\u0131\u011F\u0131n kalpleri \xF6yle arkanda b\u0131rak\u0131p
       gidemezsin\u2026."
-    - "D: Sen hele bir uyan\u2026 G\xFCn\xFCn\xFC g\xF6receksin...g\xFCn\xFCn\xFC...g\xF6receksin\u2026\r"
+    - "D: &Sen hele bir uyan\u2026 G\xFCn\xFCn\xFC g\xF6receksin...g\xFCn\xFCn\xFC...g\xF6receksin\u2026\r"
   - name: wakeup
     sentences:
     - "A: Oha o nas\u0131l r\xFCya."

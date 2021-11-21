@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 	public bool gameStopped;
 	public GameObject memoryShower;
 	[Space]
+	public AudioClip randomMusic;
+	public AudioClip chaseMusic;
+	public AudioClip dreamMusic;
+	public AudioSource source;
+	public GameObject blackObject;
 
 	public Room hallRoom;
 	public bool firstInteractionHappened = false;
@@ -23,6 +28,7 @@ public class GameManager : MonoBehaviour
 	public float shakeSpeed;
 	public string playerName = "Emir";
 	public GameObject jumpscareObj;
+	public Enemy enemy;
 
 	public static GameManager main;
 
@@ -33,7 +39,29 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
+		playerName = FindObjectOfType<NewGameManager>().nameStr;
 		// Invoke("StartExplode", 2f);
+		blackObject.SetActive(true);
+		Dialogue.main.PlayDialogue("dream");
+		source.clip = dreamMusic;
+	}
+
+	public void OnEvent()
+	{
+		if (blackObject.activeInHierarchy)
+		{
+			blackObject.SetActive(false);
+			Invoke("AfterWait", 2f);
+		}
+		else
+		{
+			StartExplode();
+		}
+	}
+
+	public void AfterWait()
+	{
+		Dialogue.main.PlayDialogue("wakeup");
 	}
 
 	public void Die()
@@ -55,6 +83,23 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
+		if (!source.isPlaying)
+			source.Play();
+		if (enemy.currRoom == Player.main.currRoom)
+		{
+			if (source.clip != chaseMusic)
+			{
+				source.clip = chaseMusic;
+			}
+		}
+		else if (!blackObject.activeInHierarchy)
+		{
+			if (source.clip != randomMusic)
+			{
+				source.clip = randomMusic;
+			}
+		}
+
 		if (padLock.foundPassword)
 			GameWon();
 

@@ -93,6 +93,7 @@ public class Dialogue : MonoBehaviour
 			imageA.gameObject.SetActive(false);
 			imageB.gameObject.SetActive(true);
 			textB.text = currTalkingName;
+			imageB.enabled = currTalkingSprite != null;
 			imageB.sprite = currTalkingSprite;
 		}
 	}
@@ -180,7 +181,7 @@ public class Dialogue : MonoBehaviour
 			else if (c == '&')
 			{
 				print("Exploding");
-				GameManager.main.StartExplode();
+				GameManager.main.OnEvent();
 				continue;
 			}
 			text.text += sentences[sentenceIndex][i];
