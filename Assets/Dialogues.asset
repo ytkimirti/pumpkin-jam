@@ -22,6 +22,9 @@ MonoBehaviour:
   - key: 67
     name: Supelin
     sprite: {fileID: 21300000, guid: 486fba7e96675d148aff2f45f65707dd, type: 3}
+  - key: 68
+    name: 
+    sprite: {fileID: 0}
   dialogues:
   - name: intro
     sentences:
@@ -31,3 +34,43 @@ MonoBehaviour:
     - 'C: Nedenn :3'
     - "A: Bal gibi bir k\u0131z do\u011Furmu\u015F daa"
     - "B: Yaa \u015Fap\u015Fiik <3"
+  - name: dream
+    sentences:
+    - 'D: $!'
+    - "D: Seni pis birey\u2026\r"
+    - "D: Ben seni bilmez miyim.... Yapt\u0131\u011F\u0131n her \u015Feyin bir bedeli
+      olacak\u2026"
+    - "D: K\u0131rd\u0131\u011F\u0131n kalpleri \xF6yle arkanda b\u0131rak\u0131p
+      gidemezsin\u2026."
+    - "D: Sen hele bir uyan\u2026 G\xFCn\xFCn\xFC g\xF6receksin...g\xFCn\xFCn\xFC...g\xF6receksin\u2026\r"
+  - name: wakeup
+    sentences:
+    - "A: Oha o nas\u0131l r\xFCya."
+    - "A:  Deli midir nedir r\xFCyama girdi resmen."
+  - name: door_interact
+    sentences:
+    - "A: Of be Supelin. \u0130nat etti \u015Fu kap\u0131ya da kilit takt\u0131rd\u0131.\r"
+    - "A:  Babas\u0131n\u0131n \u015Firketinden adam getirtip takt\u0131rd\u0131
+      ha.\r"
+    - "A:  Zenginlik b\xF6yle bir \u015Fey herhalde.\r"
+  - name: photo_interact
+    sentences:
+    - "A: Supelin\u2026\r"
+    - "A:  Babas\u0131 \u015Eato Kilit \u015Firketinin sahibiydi.\r"
+    - "A:  G\xFCzel k\u0131zd\u0131 hem de\u2026 ama ben gelemiyorum \xF6yle tiplere.\r"
+    - "A:  Art\u0131k o da gitti zaten. Bir ara foto\u011Fraf\u0131n\u0131 kald\u0131r\u0131r\u0131m.\r"
+  - name: supelin
+    sentences:
+    - 'A: |Supelin?!'
+    - 'B: ...'
+    - "C: ... Evin kilitlerini babam\u0131n \u015Firketi takt\u0131rd\u0131 ya \xF6k\xFCz."
+    - "A:  Ha\u2026 Bir \u015Fey mi oldu, neden geldin ki sen?"
+    - "C: Hala bilmemezlikten geliyor\u2026\r"
+    - "B: Ben sana istedi\u011Fin her \u015Feyi verdim\u2026 en yeni telefondan ald\u0131m\u2026
+      en \xFCnl\xFC markalardan giydirdim\u2026\r"
+    - "B: Evini bile korudum\u2026\r"
+    - "B: Peki sen? Sen benim i\xE7in ne yapt\u0131n? \xC7ektin gittin!"
+    - "C: |\xC7EKT\u0130N G\u0130TT\u0130N!\r\r"
+    - "A: \xD6yle deme, bir ara sana pasta yapm\u0131\u015Ft\u0131m ya \U0001F642\r:)"
+    - "C: |&B\u0130R ARA MI!?"
+    - "A: SUPEL\u0130N!?\r"

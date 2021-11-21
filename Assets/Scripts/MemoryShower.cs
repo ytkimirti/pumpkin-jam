@@ -14,7 +14,7 @@ public class MemoryShower : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && !Dialogue.main.isDialogging)
 		{
 			gameObject.SetActive(false);
 
