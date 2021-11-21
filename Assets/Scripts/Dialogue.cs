@@ -5,6 +5,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine.UI;
 using System.Linq;
+using EZCameraShake;
 
 public class Dialogue : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public class Dialogue : MonoBehaviour
 
 	public void PlayDialogue(string name)
 	{
+		if (isDialogging)
+			return;
 		Dialog currDialog = null;
 
 		foreach (Dialog d in dialoguesSO.dialogues)
@@ -144,12 +147,43 @@ public class Dialogue : MonoBehaviour
 
 		for (int i = 3; i < sentences[sentenceIndex].Length; i++)
 		{
+			char c = sentences[sentenceIndex][i];
+			if (c == '$')
+			{
+				continue;
+			}
+			else if (c == '|')
+			{
+				continue;
+			}
+			else if (c == '&')
+			{
+				continue;
+			}
 			currTalkingSentence = currTalkingSentence + sentences[sentenceIndex][i];
 		}
 
-		for (int i = 0; i < currTalkingSentence.Length; i++)
+		for (int i = 3; i < sentences[sentenceIndex].Length; i++)
 		{
-			text.text += currTalkingSentence[i];
+			char c = sentences[sentenceIndex][i];
+			if (c == '$')
+			{
+				text.text += GameManager.main.playerName;
+				continue;
+			}
+			else if (c == '|')
+			{
+				print("Shaked");
+				CameraShaker.Instance.ShakeOnce(5, 10, 0, 1);
+				continue;
+			}
+			else if (c == '&')
+			{
+				print("Exploding");
+				GameManager.main.StartExplode();
+				continue;
+			}
+			text.text += sentences[sentenceIndex][i];
 			yield return new WaitForSeconds(textSpeed);
 		}
 	}

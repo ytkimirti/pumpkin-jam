@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 	public float zoomLerpSpeed;
 	public float zoomExtraOffset;
 	public SpriteRenderer darkBG;
-	Room lastRoom;
+	public Room lastRoom;
 
 	public static CameraController main;
 	public Camera cam;

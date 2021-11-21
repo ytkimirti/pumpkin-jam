@@ -62,7 +62,7 @@ MonoBehaviour:
   - name: supelin
     sentences:
     - 'A: |Supelin?!'
-    - 'B: ...'
+    - 'B: &...'
     - "C: ... Evin kilitlerini babam\u0131n \u015Firketi takt\u0131rd\u0131 ya \xF6k\xFCz."
     - "A:  Ha\u2026 Bir \u015Fey mi oldu, neden geldin ki sen?"
     - "C: Hala bilmemezlikten geliyor\u2026\r"
@@ -71,6 +71,6 @@ MonoBehaviour:
     - "B: Evini bile korudum\u2026\r"
     - "B: Peki sen? Sen benim i\xE7in ne yapt\u0131n? \xC7ektin gittin!"
     - "C: |\xC7EKT\u0130N G\u0130TT\u0130N!\r\r"
-    - "A: \xD6yle deme, bir ara sana pasta yapm\u0131\u015Ft\u0131m ya \U0001F642\r:)"
-    - "C: |&B\u0130R ARA MI!?"
+    - "A: \xD6yle deme, bir ara sana pasta yapm\u0131\u015Ft\u0131m ya :)"
+    - "C: &|B\u0130R ARA MI!?"
     - "A: SUPEL\u0130N!?\r"
