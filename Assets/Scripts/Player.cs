@@ -111,6 +111,14 @@ public class Player : MonoBehaviour
 		return null;
 	}
 
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.gameObject.tag == "Enemy")
+		{
+			GameManager.main.Die();
+		}
+	}
+
 	public void GoThroughDoor(Door door)
 	{
 		Door otherDoor = door.connectedDoor;

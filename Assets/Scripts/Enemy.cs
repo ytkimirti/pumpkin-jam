@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 	public float nearestDistance;
 
 	[Header("References")]
-	public Transform debugEye;
+	public Transform sprite;
 	public Entity entity;
 
 	void Start()
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
 	void Update()
 	{
-		debugEye.transform.localPosition = entity.currDir * 0.3f;
+		sprite.gameObject.SetActive(currRoom == Player.main.currRoom);
 
 		entity.currInput = Vector2.zero;
 
@@ -55,6 +55,15 @@ public class Enemy : MonoBehaviour
 			{
 				GoThroughDoor(targetDoor);
 			}
+		}
+
+		if (entity.currInput.x > 0)
+		{
+			sprite.localScale = new Vector3(-1, 1, 1);
+		}
+		else if (entity.currInput.x < 0)
+		{
+			sprite.localScale = new Vector3(1, 1, 1);
 		}
 	}
 
