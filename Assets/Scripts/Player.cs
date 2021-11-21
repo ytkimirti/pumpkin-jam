@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
 	{
 		entity.currInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
+		if (GameManager.main.gameStopped)
+			entity.currInput = Vector2.zero;
+
 		debugEye.transform.localPosition = entity.currDir * 0.3f;
 
 		currInteractable = findNearestInteractable();

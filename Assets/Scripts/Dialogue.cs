@@ -42,7 +42,18 @@ public class Dialogue : MonoBehaviour
 		text.text = string.Empty;
 		isDialogging = false;
 		sentenceIndex = 0;
-		PlayDialogue("intro");
+		// PlayDialogue("intro");
+	}
+
+	public void ShowSingleSentence(string sentence)
+	{
+		if (isDialogging)
+			return;
+
+		sentenceIndex = 0;
+		sentences = new string[1];
+		sentences[0] = sentence;
+		StartDialogue(0);
 	}
 
 	public void PlayDialogue(string name)
@@ -100,6 +111,8 @@ public class Dialogue : MonoBehaviour
 	}
 	public void StartDialogue(int startIndex)
 	{
+		text.text = "";
+		currTalkingSentence = "";
 		dialogueHolder.DOLocalMoveY(0, 0.6f);
 		sentenceIndex = startIndex;
 		isDialogging = true;

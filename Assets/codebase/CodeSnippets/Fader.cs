@@ -7,58 +7,44 @@ using DG.Tweening;
 public class Fader : MonoBehaviour
 {
 
-	public bool fadeAtStart = true;
-	public float fadeSpeed;
-	public Transform faderLeft;
-	public Transform faderRight;
+    public bool fadeAtStart = true;
+    public float fadeSpeed;
+    Image image;
 
-	public static Fader main;
+    public static Fader main;
 
-	private void Awake()
-	{
-		main = this;
-
-
-	}
-
-	void Start()
-	{
-		if (fadeAtStart)
-			FadeOut();
-	}
-
-	//In means appear
-	public void FadeIn()
-	{
-		faderRight.gameObject.SetActive(true);
-		faderRight.DOKill();
-		faderRight.localScale = new Vector3(0, 1, 1);
-		faderRight.DOScale(Vector3.one, fadeSpeed).SetUpdate(true);
-
-		faderLeft.gameObject.SetActive(true);
-		faderLeft.DOKill();
-		faderLeft.localScale = new Vector3(0, 1, 1);
-		faderLeft.DOScale(Vector3.one, fadeSpeed).SetUpdate(true);
-	}
+    private void Awake()
+    {
+        main = this;
 
 
-	//Out means disappear
-	public void FadeOut()
-	{
-		faderRight.gameObject.SetActive(true);
-		faderRight.DOKill();
-		faderRight.localScale = new Vector3(1, 1, 1);
-		faderRight.DOScale(new Vector3(0, 1, 1), fadeSpeed).SetUpdate(true);
+        image = GetComponent<Image>();
+    }
 
-		faderLeft.gameObject.SetActive(true);
-		faderLeft.DOKill();
-		faderLeft.localScale = new Vector3(1, 1, 1);
-		faderLeft.DOScale(new Vector3(0, 1, 1), fadeSpeed).SetUpdate(true);
-	}
+    void Start()
+    {
+        if (fadeAtStart)
+            FadeOut();
+    }
 
-	void Disable()
-	{
-		faderRight.gameObject.SetActive(false);
-		faderLeft.gameObject.SetActive(false);
-	}
+    public void FadeIn()
+    {
+        image.DOKill();
+        image.enabled = true;
+        image.color = new Color(0, 0, 0, 0);
+        image.DOColor(Color.black, fadeSpeed).SetUpdate(true);
+    }
+
+    public void FadeOut()
+    {
+        image.DOKill();
+        image.enabled = true;
+        image.color = Color.black;
+        image.DOColor(new Color(0, 0, 0, 0), fadeSpeed).OnComplete(Disable).SetUpdate(true);
+    }
+
+    void Disable()
+    {
+        image.enabled = false;
+    }
 }
