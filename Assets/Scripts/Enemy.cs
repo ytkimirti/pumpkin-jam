@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
 			// Distance to the door
 			if (dir.magnitude < nearestDistance)
 			{
-				print("Going through the door!!!");
 				GoThroughDoor(targetDoor);
 			}
 		}

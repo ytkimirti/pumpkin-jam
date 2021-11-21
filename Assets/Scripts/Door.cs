@@ -38,7 +38,7 @@ public class Door : MonoBehaviour
 
 	public void OnInteract()
 	{
-		print($"is locked: {isLocked} name: {gameObject.name} ");
+		// TODO: Add sound
 	}
 
 	void UpdateDoors()

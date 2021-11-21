@@ -35,7 +35,6 @@ public class CameraController : MonoBehaviour
 		if (lastRoom)
 			lastRoom.sortingGroup.sortingOrder = 0;
 
-		print(newRoom);
 		newRoom.sortingGroup.sortingOrder = 2;
 		lastRoom = newRoom;
 	}
