@@ -6,15 +6,25 @@ public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public string[] sentences;
+    public GameObject[] images;
     public float textSpeed;
+    //UI Canvas
+    public GameObject Canvas;
 
     private int sentenceIndex;
+    private int sentenceEndIndex;
     private bool isDialogging;
+    private void Awake()
+    {
+        DontDestroyOnLoad(Canvas.transform.gameObject);
+    }
     private void Start()
     {
         text.text = string.Empty;
         isDialogging = false;
         sentenceIndex = 0;
+        sentenceEndIndex = 5;
+        images[0].SetActive(true);
         StartDialogue(0);
     }
     private void Update()
@@ -29,12 +39,16 @@ public class Dialogue : MonoBehaviour
             }
         }
     }
-    private void StartDialogue(int dialogueIndex)
+    public void StartDialogue(int startIndex)
     {
-        sentenceIndex = 0;
+        sentenceIndex = startIndex;
         isDialogging = true;
         gameObject.SetActive(true);
         StartCoroutine(StartSentence());
+    }
+    public void EndIndexPicker(int endIndex)
+    {
+        sentenceEndIndex = endIndex;
     }
     private IEnumerator StartSentence()
     {
@@ -46,10 +60,12 @@ public class Dialogue : MonoBehaviour
     }
     private void NextSentence()
     {
-        if (sentenceIndex < sentences.Length - 1)
+        if (sentenceIndex!=sentenceEndIndex)
         {
             sentenceIndex++;
             text.text = string.Empty;
+            images[sentenceIndex - 1].SetActive(false);
+            images[sentenceIndex].SetActive(true);
             StartCoroutine(StartSentence());
         }
         else
