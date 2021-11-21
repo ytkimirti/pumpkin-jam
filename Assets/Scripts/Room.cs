@@ -26,6 +26,7 @@ public class Room : MonoBehaviour
 	private void Awake()
 	{
 		UpdateEverything();
+		doors = doorsHolder.GetComponentsInChildren<Door>();
 	}
 
 	void Start()

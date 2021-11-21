@@ -5,10 +5,14 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 	public float lerpSpeed;
+	public float defaultZoom = 5;
+	public float zoomLerpSpeed;
+	public float zoomExtraOffset;
 	public SpriteRenderer darkBG;
 	Room lastRoom;
 
 	public static CameraController main;
+	public Camera cam;
 
 	private void Awake()
 	{
@@ -17,10 +21,10 @@ public class CameraController : MonoBehaviour
 
 	void Start()
 	{
-
+		cam = Camera.main;
 	}
 
-	void Update()
+	void LateUpdate()
 	{
 		Vector2 targetPos = Player.main.transform.position;
 
@@ -28,6 +32,18 @@ public class CameraController : MonoBehaviour
 			targetPos = Player.main.currRoom.transform.position;
 
 		transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * lerpSpeed);
+
+		// Zooming
+		float targetZoom = defaultZoom;
+
+		if (Player.main.currRoom)
+		{
+			float newHeight = Player.main.currRoom.roomSize.x / cam.aspect;
+			float height = Player.main.currRoom.roomSize.y;
+			targetZoom = Mathf.Max(newHeight, height) + zoomExtraOffset;
+		}
+
+		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetZoom, Time.deltaTime * zoomLerpSpeed);
 	}
 
 	public void OnChangeRoom(Room newRoom)

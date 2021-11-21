@@ -79,7 +79,7 @@ public class Door : MonoBehaviour
 	{
 		FindParent();
 
-		if (!connectedDoor)
+		if (connectedDoor.connectedDoor != this)
 			Gizmos.color = Color.red;
 		else
 			Gizmos.color = Color.green;

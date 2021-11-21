@@ -15,16 +15,19 @@ MonoBehaviour:
   characterKeys:
   - key: 65
     name: Emir
-    sprite: {fileID: 21300000, guid: 0258e7cd227c46040a845d9bab7d831e, type: 3}
+    sprite: {fileID: 21300000, guid: 9cd50fa3ee949ee46aa26f5a7e005d13, type: 3}
   - key: 66
-    name: Ceyda
-    sprite: {fileID: 21300000, guid: 2dbd816b8796ec343848391845a75c57, type: 3}
+    name: Supelin
+    sprite: {fileID: 21300000, guid: 6ea937c7360d2bf47a57f99fc2984d17, type: 3}
+  - key: 67
+    name: Supelin
+    sprite: {fileID: 21300000, guid: 486fba7e96675d148aff2f45f65707dd, type: 3}
   dialogues:
   - name: intro
     sentences:
     - "A: Selam \xE7ukulatam"
     - "B: Selam bal\u0131m"
     - "A: Senin annen ar\u0131 m\u0131?"
-    - 'B: Nedenn :3'
+    - 'C: Nedenn :3'
     - "A: Bal gibi bir k\u0131z do\u011Furmu\u015F daa"
     - "B: Yaa \u015Fap\u015Fiik <3"

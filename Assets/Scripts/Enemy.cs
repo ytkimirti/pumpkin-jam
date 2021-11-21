@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 	{
 		debugEye.transform.localPosition = entity.currDir * 0.3f;
 
+		entity.currInput = Vector2.zero;
 
 		if (targetDoor && targetDoor.myRoom != currRoom)
 		{
@@ -37,7 +38,7 @@ public class Enemy : MonoBehaviour
 
 			// Collision dedection happens on player side.
 		}
-		else if (!targetDoor)
+		else if (!targetDoor || targetDoor.isLocked)
 		{
 			// If you don't have a target, then find one
 			targetDoor = FindDoorPlayerIsIn();
@@ -59,9 +60,10 @@ public class Enemy : MonoBehaviour
 
 	public Door FindDoorPlayerIsIn()
 	{
+		print("finding door");
 		foreach (Door d in currRoom.doors)
 		{
-			if (d.connectedDoor.myRoom == Player.main.currRoom)
+			if (!d.isLocked && d.connectedDoor.myRoom == Player.main.currRoom)
 			{
 				// Player is behind this door!
 				return d;
