@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Door : MonoBehaviour
 	public bool isLocked;
 
 	[Header("Refs")]
+
 	public Door connectedDoor;
 	public Room myRoom;
 
@@ -21,6 +23,7 @@ public class Door : MonoBehaviour
 	private void Awake()
 	{
 		FindParent();
+
 	}
 
 	void Start()
@@ -30,17 +33,29 @@ public class Door : MonoBehaviour
 
 	void Update()
 	{
+		UpdateDoors();
+	}
+
+	public void OnInteract()
+	{
+		print($"is locked: {isLocked} name: {gameObject.name} ");
+	}
+
+	void UpdateDoors()
+	{
 		keyRenderer.gameObject.SetActive(isLocked);
 
 		Color col = GameManager.main.keyColors[color];
 
 		keyRenderer.color = col;
 		doorRenderer.color = col;
-	}
 
-	public void OnInteract()
-	{
-		print($"is locked: {isLocked} name: {gameObject.name} ");
+		if (connectedDoor)
+		{
+			connectedDoor.color = color;
+			connectedDoor.connectedDoor = this;
+			connectedDoor.isLocked = isLocked;
+		}
 	}
 
 	public Vector2 FindTargetPosition()

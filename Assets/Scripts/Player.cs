@@ -59,6 +59,8 @@ public class Player : MonoBehaviour
 					{
 						// Toogle lock
 						door.isLocked = !door.isLocked;
+						if (door.connectedDoor)
+							door.connectedDoor.isLocked = door.isLocked;
 					}
 
 				}
