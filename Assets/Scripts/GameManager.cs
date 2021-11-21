@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 	bool shakeSupelin = false;
 	public float shakeSpeed;
 	public string playerName = "Emir";
+	public GameObject jumpscareObj;
 
 	public static GameManager main;
 
@@ -34,12 +36,29 @@ public class GameManager : MonoBehaviour
 		// Invoke("StartExplode", 2f);
 	}
 
+	public void Die()
+	{
+		if (isGameOver)
+			return;
+
+		jumpscareObj.SetActive(true);
+		isGameWon = false;
+		isGameOver = true;
+		Fader.main.FadeIn();
+		Invoke("Restart", 1);
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(1, LoadSceneMode.Single);
+	}
+
 	void Update()
 	{
 		if (padLock.foundPassword)
 			GameWon();
 
-		gameStopped = padLock.gameObject.activeInHierarchy || memoryShower.activeInHierarchy;
+		gameStopped = padLock.gameObject.activeInHierarchy || memoryShower.activeInHierarchy || Dialogue.main.isDialogging || isGameOver;
 
 		if (!firstInteractionHappened && Player.main.currRoom == hallRoom)
 		{

@@ -3,7 +3,7 @@ using TMPro;
 
 public class PadLock : MonoBehaviour
 {
-	public int password;
+	public string password;
 	public TextMeshProUGUI text;
 	public GameObject infoText;
 	public bool foundPassword;
@@ -47,7 +47,7 @@ public class PadLock : MonoBehaviour
 	}
 	public void DoneGuessing()
 	{
-		if (text.text == password.ToString())
+		if (text.text == password)
 		{
 			foundPassword = true;
 			gameObject.SetActive(false);
